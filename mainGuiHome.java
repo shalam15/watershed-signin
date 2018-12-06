@@ -61,6 +61,7 @@ public class mainGuiHome {
 		frame.setBounds(100, 100, 690, 914);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(true);
 
 		JLabel lblWatershedSigninSheet = new JLabel("Daily Activity Report");
 		lblWatershedSigninSheet.setBounds(211, 6, 229, 16);
@@ -89,6 +90,7 @@ public class mainGuiHome {
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setBounds(2, 18, 510, 96);
 		table.setBorder(new MatteBorder(1, 1, 1, 1, Color.blue));
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(186, 159, 482, 704);
@@ -99,7 +101,6 @@ public class mainGuiHome {
 		JPanel panel = new JPanel();
 		panel.setBounds(10, 159, 164, 704);
 		frame.getContentPane().add(panel);
-
 		JLabel lblRadioCharger = new JLabel("1. Radio & Charger");
 		panel.add(lblRadioCharger);
 
@@ -297,4 +298,5 @@ public class mainGuiHome {
 		frame.getContentPane().add(textField_2);
 
 	}
+
 }
