@@ -6,7 +6,7 @@
  * @author aj
  *
  */
-public class Employee1 {
+public class Employee {
 	private String firstName;
 	private String lastName;
 	private String companyName;
