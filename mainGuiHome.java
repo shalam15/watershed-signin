@@ -2,6 +2,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.print.PrinterException;
+import java.text.MessageFormat;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,12 +17,13 @@ public class mainGuiHome {
 	Employee employeeDefault = new Employee("Abdulsalam", "Ajayi");
 
 	private JFrame frame;
-	private JTable table;
+	private static JTable table;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
@@ -90,6 +93,7 @@ public class mainGuiHome {
 						"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." }, };
 
 		String[] columnNames = { "Time", "Chronological Comment" };
+
 		table = new JTable(data, columnNames);
 		table.setBorder(new MatteBorder(1, 1, 1, 1, Color.RED));
 		table.setBounds(59, 309, 313, -163);
@@ -106,6 +110,18 @@ public class mainGuiHome {
 		scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane_1.setBounds(10, 108, 100, 706);
 		frame.getContentPane().add(scrollPane_1);
+		try {
+			table.print();
+		} catch (PrinterException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		MessageFormat header = new MessageFormat("Page {0,number,integer}");
+		try {
+			table.print(JTable.PrintMode.FIT_WIDTH, header, null);
+		} catch (java.awt.print.PrinterException e) {
+			System.err.format("Cannot print %s%n", e.getMessage());
+		}
 
 	}
 }
