@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -108,6 +109,10 @@ public class mainGuiHome {
 		JRadioButton rdbtnNo1 = new JRadioButton("No");
 		panel.add(rdbtnNo1);
 
+		ButtonGroup group = new ButtonGroup();
+		group.add(rdbtnYes1);
+		group.add(rdbtnNo1);
+
 		JLabel lblCellPhoneReceive = new JLabel("2. Cell Phone Received");
 		panel.add(lblCellPhoneReceive);
 
@@ -117,6 +122,10 @@ public class mainGuiHome {
 		JRadioButton rdbtnNo2 = new JRadioButton("No");
 		panel.add(rdbtnNo2);
 
+		ButtonGroup group2 = new ButtonGroup();
+		group2.add(rdbtnYes2);
+		group2.add(rdbtnNo2);
+
 		JLabel lblUpdatedInstructions = new JLabel("3. Updated Instructions");
 		panel.add(lblUpdatedInstructions);
 
@@ -125,6 +134,11 @@ public class mainGuiHome {
 
 		JRadioButton rdbtnNo3 = new JRadioButton("No");
 		panel.add(rdbtnNo3);
+
+		ButtonGroup group3 = new ButtonGroup();
+		group3.add(rdbtnYes3);
+		group3.add(rdbtnNo3);
+
 		JLabel lblSecurityBranches = new JLabel("4. Security Branches");
 		panel.add(lblSecurityBranches);
 
@@ -134,6 +148,10 @@ public class mainGuiHome {
 		JRadioButton rdbtnNo4 = new JRadioButton("No");
 		panel.add(rdbtnNo4);
 
+		ButtonGroup group4 = new ButtonGroup();
+		group4.add(rdbtnYes4);
+		group4.add(rdbtnNo4);
+
 		JLabel lblSafetyHazard = new JLabel("5. Safety Hazard");
 		panel.add(lblSafetyHazard);
 
@@ -142,6 +160,10 @@ public class mainGuiHome {
 
 		JRadioButton rdbtnNo5 = new JRadioButton("No");
 		panel.add(rdbtnNo5);
+
+		ButtonGroup group5 = new ButtonGroup();
+		group5.add(rdbtnYes5);
+		group5.add(rdbtnNo5);
 		JLabel lblSuspiciousActivity = new JLabel("6. Suspicious Activity");
 		panel.add(lblSuspiciousActivity);
 
@@ -150,6 +172,10 @@ public class mainGuiHome {
 
 		JRadioButton rdbtnNo6 = new JRadioButton("No");
 		panel.add(rdbtnNo6);
+
+		ButtonGroup group6 = new ButtonGroup();
+		group6.add(rdbtnYes6);
+		group6.add(rdbtnNo6);
 		JLabel lblPolicyViolation = new JLabel("7. Policy Violation");
 		panel.add(lblPolicyViolation);
 
@@ -158,6 +184,10 @@ public class mainGuiHome {
 
 		JRadioButton rdbtnNo7 = new JRadioButton("No");
 		panel.add(rdbtnNo7);
+
+		ButtonGroup group7 = new ButtonGroup();
+		group7.add(rdbtnYes7);
+		group7.add(rdbtnNo7);
 		JLabel lblInjuriesIllnesss = new JLabel("8. Injuries/ Illnesss");
 		panel.add(lblInjuriesIllnesss);
 
@@ -167,6 +197,10 @@ public class mainGuiHome {
 		JRadioButton rdbtnNo8 = new JRadioButton("No");
 		panel.add(rdbtnNo8);
 
+		ButtonGroup group8 = new ButtonGroup();
+		group8.add(rdbtnYes8);
+		group8.add(rdbtnNo8);
+
 		JLabel lblIncidentReports = new JLabel("9. Incident Reports");
 		panel.add(lblIncidentReports);
 
@@ -175,6 +209,9 @@ public class mainGuiHome {
 
 		JRadioButton rdbtnNo9 = new JRadioButton("No");
 		panel.add(rdbtnNo9);
+		ButtonGroup group9 = new ButtonGroup();
+		group9.add(rdbtnYes9);
+		group9.add(rdbtnNo9);
 
 		JLabel lblOtherEquip = new JLabel("10. Other Equip.");
 		panel.add(lblOtherEquip);
