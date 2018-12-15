@@ -10,7 +10,7 @@ public class TableHorizontal extends JFrame {
 				return getPreferredSize().width < getParent().getWidth();
 			}
 		};
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		final JScrollPane scrollPane = new JScrollPane(table);
 		getContentPane().add(scrollPane);
 	}

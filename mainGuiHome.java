@@ -1,24 +1,39 @@
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.border.MatteBorder;
+import javax.swing.border.TitledBorder;
 
 public class mainGuiHome {
+	public static String timing[] = { "0000", "0100", "0200", "0300", "0400", "0500", "0600", "0700", "0800", "0900",
+			"1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200",
+			"2300", "2400" };
+	public static String[][] data = { { "0600",
+			"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." },
+			{ "0615",
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." },
+			{ "0630",
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." },
+			{ "0635",
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." },
+			{ "0700",
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." },
+			{ "0730",
+					"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." }, };
+
+	public static String[] columnNames = { "Time", "Chronological Comment" };
 	Employee employeeDefault = new Employee();
 
-	private JFrame frame;
-	private static JTable table;
+	JFrame frame;
 	private JTextField txtHowellMill;
 	private JTextField textField;
 	private JTextField txtst;
@@ -58,7 +73,7 @@ public class mainGuiHome {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 690, 914);
+		frame.setBounds(100, 100, 764, 1087);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(true);
@@ -71,35 +86,8 @@ public class mainGuiHome {
 		employeeDefault.setLastName("Ajayi");
 		employeeDefault.setShiftTime("Night Shift");
 
-		String[][] data = { { "0600",
-				"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." },
-				{ "0615",
-						"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." },
-				{ "0630",
-						"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." },
-				{ "0635",
-						"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." },
-				{ "0700",
-						"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." },
-				{ "0730",
-						"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." }, };
-
-		String[] columnNames = { "Time", "Chronological Comment" };
-
-		table = new JTable(data, columnNames);
-		table.setSurrendersFocusOnKeystroke(true);
-		table.setBounds(2, 18, 510, 96);
-		table.setBorder(new MatteBorder(1, 1, 1, 1, Color.blue));
-		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-
-		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(186, 159, 482, 704);
-		scrollPane.setToolTipText("Testing");
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		frame.getContentPane().add(scrollPane);
-
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 159, 164, 704);
+		panel.setBounds(10, 159, 164, 826);
 		frame.getContentPane().add(panel);
 		JLabel lblRadioCharger = new JLabel("1. Radio & Charger");
 		panel.add(lblRadioCharger);
@@ -222,6 +210,13 @@ public class mainGuiHome {
 		txtrHelloWorld.setTabSize(10);
 		panel.add(txtrHelloWorld);
 
+		JLabel lblSupervisorCheckin = new JLabel("SUPERVISOR CHECK-IN");
+		panel.add(lblSupervisorCheckin);
+
+		JPanel panel_13 = new JPanel();
+		panel.add(panel_13);
+		panel_13.setLayout(new GridLayout(0, 1, 0, 0));
+
 		JLabel lblSite = new JLabel("Site:");
 		lblSite.setBounds(10, 39, 32, 16);
 		frame.getContentPane().add(lblSite);
@@ -278,25 +273,194 @@ public class mainGuiHome {
 		frame.getContentPane().add(lblSignatureOrInitials);
 
 		JLabel lblStartTime = new JLabel("Start Time:");
-		lblStartTime.setBounds(375, 131, 74, 16);
+		lblStartTime.setBounds(378, 131, 74, 16);
 		frame.getContentPane().add(lblStartTime);
 
 		textField_1 = new JTextField();
 		textField_1.setEditable(false);
-		textField_1.setBounds(455, 126, 32, 26);
+		textField_1.setText(timing[0]);
+		textField_1.setBounds(455, 126, 44, 26);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 
 		JLabel lblEndTime = new JLabel("End TIme:");
-		lblEndTime.setBounds(499, 131, 74, 16);
+		lblEndTime.setBounds(522, 131, 74, 16);
 		frame.getContentPane().add(lblEndTime);
 
 		textField_2 = new JTextField();
 		textField_2.setEditable(false);
+		textField_2.setText(timing[11]);
 		textField_2.setColumns(10);
-		textField_2.setBounds(565, 126, 32, 26);
+		textField_2.setBounds(580, 126, 44, 26);
 		frame.getContentPane().add(textField_2);
 
-	}
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new TitledBorder(null, timing[0], TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1.setBounds(186, 159, 502, 58);
+		frame.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
 
+		JTextArea txtrOremIpsumIs = new JTextArea();
+		txtrOremIpsumIs.setBounds(56, 18, 440, 34);
+		panel_1.add(txtrOremIpsumIs);
+		txtrOremIpsumIs.setLineWrap(true);
+		txtrOremIpsumIs.setBackground(Color.WHITE);
+		txtrOremIpsumIs.setColumns(1);
+
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new TitledBorder(null, timing[1], TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_2.setLayout(null);
+		panel_2.setBounds(186, 229, 502, 58);
+		frame.getContentPane().add(panel_2);
+
+		JTextArea textArea = new JTextArea();
+		textArea.setLineWrap(true);
+		textArea.setColumns(1);
+		textArea.setBackground(Color.WHITE);
+		textArea.setBounds(56, 18, 440, 34);
+		panel_2.add(textArea);
+
+		JPanel panel_3 = new JPanel();
+		panel_3.setBorder(new TitledBorder(null, timing[2], TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_3.setLayout(null);
+		panel_3.setBounds(186, 299, 502, 58);
+		frame.getContentPane().add(panel_3);
+
+		JTextArea textArea_1 = new JTextArea();
+		textArea_1.setLineWrap(true);
+		textArea_1.setColumns(1);
+		textArea_1.setBackground(Color.WHITE);
+		textArea_1.setBounds(56, 18, 440, 34);
+		panel_3.add(textArea_1);
+
+		JPanel panel_4 = new JPanel();
+		panel_4.setBorder(new TitledBorder(null, timing[3], TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_4.setLayout(null);
+		panel_4.setBounds(186, 369, 502, 58);
+		frame.getContentPane().add(panel_4);
+
+		JTextArea textArea_2 = new JTextArea();
+		textArea_2.setLineWrap(true);
+		textArea_2.setColumns(1);
+		textArea_2.setBackground(Color.WHITE);
+		textArea_2.setBounds(56, 18, 440, 34);
+		panel_4.add(textArea_2);
+
+		JPanel panel_5 = new JPanel();
+		panel_5.setBorder(new TitledBorder(null, timing[4], TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_5.setLayout(null);
+		panel_5.setBounds(186, 439, 502, 58);
+		frame.getContentPane().add(panel_5);
+
+		JTextArea textArea_3 = new JTextArea();
+		textArea_3.setLineWrap(true);
+		textArea_3.setColumns(1);
+		textArea_3.setBackground(Color.WHITE);
+		textArea_3.setBounds(56, 18, 440, 34);
+		panel_5.add(textArea_3);
+
+		JPanel panel_6 = new JPanel();
+		panel_6.setBorder(new TitledBorder(null, timing[5], TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_6.setLayout(null);
+		panel_6.setBounds(186, 509, 502, 58);
+		frame.getContentPane().add(panel_6);
+
+		JTextArea textArea_4 = new JTextArea();
+		textArea_4.setLineWrap(true);
+		textArea_4.setColumns(1);
+		textArea_4.setBackground(Color.WHITE);
+		textArea_4.setBounds(56, 18, 440, 34);
+		panel_6.add(textArea_4);
+
+		JPanel panel_7 = new JPanel();
+		panel_7.setBorder(new TitledBorder(null, timing[6], TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_7.setLayout(null);
+		panel_7.setBounds(186, 579, 502, 58);
+		frame.getContentPane().add(panel_7);
+
+		JTextArea textArea_5 = new JTextArea();
+		textArea_5.setLineWrap(true);
+		textArea_5.setColumns(1);
+		textArea_5.setBackground(Color.WHITE);
+		textArea_5.setBounds(56, 18, 440, 34);
+		panel_7.add(textArea_5);
+
+		JPanel panel_8 = new JPanel();
+		panel_8.setBorder(new TitledBorder(null, timing[7], TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_8.setLayout(null);
+		panel_8.setBounds(186, 649, 502, 58);
+		frame.getContentPane().add(panel_8);
+
+		JTextArea textArea_6 = new JTextArea();
+		textArea_6.setLineWrap(true);
+		textArea_6.setColumns(1);
+		textArea_6.setBackground(Color.WHITE);
+		textArea_6.setBounds(56, 18, 440, 34);
+		panel_8.add(textArea_6);
+
+		JPanel panel_9 = new JPanel();
+		panel_9.setBorder(new TitledBorder(null, timing[8], TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_9.setLayout(null);
+		panel_9.setBounds(186, 719, 502, 58);
+		frame.getContentPane().add(panel_9);
+
+		JTextArea textArea_7 = new JTextArea();
+		textArea_7.setLineWrap(true);
+		textArea_7.setColumns(1);
+		textArea_7.setBackground(Color.WHITE);
+		textArea_7.setBounds(56, 18, 440, 34);
+		panel_9.add(textArea_7);
+
+		JPanel panel_10 = new JPanel();
+		panel_10.setBorder(new TitledBorder(null, timing[9], TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_10.setLayout(null);
+		panel_10.setBounds(186, 789, 502, 58);
+		frame.getContentPane().add(panel_10);
+
+		JTextArea textArea_8 = new JTextArea();
+		textArea_8.setLineWrap(true);
+		textArea_8.setColumns(1);
+		textArea_8.setBackground(Color.WHITE);
+		textArea_8.setBounds(56, 18, 440, 34);
+		panel_10.add(textArea_8);
+
+		JPanel panel_11 = new JPanel();
+		panel_11.setBorder(new TitledBorder(null, timing[10], TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_11.setLayout(null);
+		panel_11.setBounds(186, 859, 502, 58);
+		frame.getContentPane().add(panel_11);
+
+		JTextArea textArea_9 = new JTextArea();
+		textArea_9.setLineWrap(true);
+		textArea_9.setColumns(1);
+		textArea_9.setBackground(Color.WHITE);
+		textArea_9.setBounds(56, 18, 440, 34);
+		panel_11.add(textArea_9);
+
+		JPanel panel_12 = new JPanel();
+		panel_12.setBorder(new TitledBorder(null, timing[11], TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_12.setLayout(null);
+		panel_12.setBounds(186, 927, 502, 58);
+		frame.getContentPane().add(panel_12);
+
+		JTextArea textArea_10 = new JTextArea();
+		textArea_10.setLineWrap(true);
+		textArea_10.setColumns(1);
+		textArea_10.setBackground(Color.WHITE);
+		textArea_10.setBounds(56, 18, 440, 34);
+		panel_12.add(textArea_10);
+
+		JButton button = new JButton("SAVE ALL ENTRY");
+		button.setForeground(Color.RED);
+		button.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		button.setBounds(243, 997, 188, 46);
+		frame.getContentPane().add(button);
+
+		JButton btnPrintPage = new JButton("PRINT PAGE");
+		btnPrintPage.setForeground(Color.BLUE);
+		btnPrintPage.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		btnPrintPage.setBounds(436, 997, 188, 46);
+		frame.getContentPane().add(btnPrintPage);
+
+	}
 }
