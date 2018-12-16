@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+@SuppressWarnings("serial")
 public class MainHomePage extends JFrame {
 
 	private JPanel contentPane;
@@ -29,6 +31,10 @@ public class MainHomePage extends JFrame {
 				try {
 					MainHomePage frame = new MainHomePage();
 					frame.setVisible(true);
+					frame.setResizable(false);
+					Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+					frame.setLocation(dim.width / 2 - frame.getSize().width / 2,
+							dim.height / 2 - frame.getSize().height / 2);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -55,6 +61,7 @@ public class MainHomePage extends JFrame {
 				try {
 					DAREntry window = new DAREntry();
 					window.frame.setVisible(true);
+					contentPane.setVisible(true);
 				} catch (Exception error) {
 					error.printStackTrace();
 				}
@@ -121,7 +128,7 @@ public class MainHomePage extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					SignIn window = new SignIn();
+					SignInSheet window = new SignInSheet();
 					window.frame.setVisible(true);
 				} catch (Exception error) {
 					error.printStackTrace();

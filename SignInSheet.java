@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class SignIn {
+public class SignInSheet {
 	public String supervisorCheckin = "no checkin yet";
 	public static String timing[] = { "0000", "0100", "0200", "0300", "0400", "0500", "0600", "0700", "0800", "0900",
 			"1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200",
@@ -48,7 +48,7 @@ public class SignIn {
 			@Override
 			public void run() {
 				try {
-					SignIn window = new SignIn();
+					SignInSheet window = new SignInSheet();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -60,7 +60,7 @@ public class SignIn {
 	/**
 	 * Create the application.
 	 */
-	public SignIn() {
+	public SignInSheet() {
 		initialize();
 	}
 

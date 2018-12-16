@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -84,6 +85,9 @@ public class DAREntry {
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(true);
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("/Users/aj/Desktop/PNG image 3.png"));
+		frame.setResizable(false);
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		frame.setLocation(dim.width / 2 - frame.getSize().width / 2, dim.height / 2 - frame.getSize().height / 2);
 		JLabel lblWatershedSigninSheet = new JLabel("Daily Activity Report");
 		lblWatershedSigninSheet.setBounds(211, 6, 229, 16);
 		lblWatershedSigninSheet.setFont(new Font("Apple Color Emoji", Font.BOLD, 17));
