@@ -53,7 +53,7 @@ public class MainHomePage extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-					mainGuiHome window = new mainGuiHome();
+					DAREntry window = new DAREntry();
 					window.frame.setVisible(true);
 				} catch (Exception error) {
 					error.printStackTrace();

@@ -2,18 +2,24 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-public class mainGuiHome {
+public class DAREntry {
+	public String supervisorCheckin = "no checkin yet";
 	public static String timing[] = { "0000", "0100", "0200", "0300", "0400", "0500", "0600", "0700", "0800", "0900",
 			"1000", "1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900", "2000", "2100", "2200",
 			"2300", "2400" };
@@ -51,7 +57,7 @@ public class mainGuiHome {
 			@Override
 			public void run() {
 				try {
-					mainGuiHome window = new mainGuiHome();
+					DAREntry window = new DAREntry();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -63,7 +69,7 @@ public class mainGuiHome {
 	/**
 	 * Create the application.
 	 */
-	public mainGuiHome() {
+	public DAREntry() {
 		initialize();
 	}
 
@@ -77,7 +83,7 @@ public class mainGuiHome {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(true);
-
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("/Users/aj/Desktop/PNG image 3.png"));
 		JLabel lblWatershedSigninSheet = new JLabel("Daily Activity Report");
 		lblWatershedSigninSheet.setBounds(211, 6, 229, 16);
 		lblWatershedSigninSheet.setFont(new Font("Apple Color Emoji", Font.BOLD, 17));
@@ -213,9 +219,40 @@ public class mainGuiHome {
 		JLabel lblSupervisorCheckin = new JLabel("SUPERVISOR CHECK-IN");
 		panel.add(lblSupervisorCheckin);
 
+		JButton btnIn = new JButton("IN");
+		btnIn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				JOptionPane.showMessageDialog(frame, "CHECK IN COMPLETE AT" + new Date());
+
+				String supervisorCheckin = JOptionPane.showInputDialog(frame, "input Name");
+
+				System.out.println(supervisorCheckin);
+			}
+		});
+		panel.add(btnIn);
+
+		JButton button_1 = new JButton("OUT");
+		button_1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(frame, "CHECK OUT COMPLETE AT" + new Date());
+			}
+		});
+		panel.add(button_1);
+
 		JPanel panel_13 = new JPanel();
 		panel.add(panel_13);
 		panel_13.setLayout(new GridLayout(0, 1, 0, 0));
+
+		JTextArea textArea_11 = new JTextArea();
+		textArea_11.setTabSize(10);
+		textArea_11.setLineWrap(true);
+		textArea_11.setColumns(1);
+		textArea_11.setBackground(Color.WHITE);
+		panel.add(textArea_11);
+		textArea_11.setText(supervisorCheckin);
 
 		JLabel lblSite = new JLabel("Site:");
 		lblSite.setBounds(10, 39, 32, 16);
@@ -435,6 +472,7 @@ public class mainGuiHome {
 		textArea_9.setColumns(1);
 		textArea_9.setBackground(Color.WHITE);
 		textArea_9.setBounds(56, 18, 440, 34);
+		textArea_9.setEditable(true);
 		panel_11.add(textArea_9);
 
 		JPanel panel_12 = new JPanel();
@@ -451,16 +489,47 @@ public class mainGuiHome {
 		panel_12.add(textArea_10);
 
 		JButton button = new JButton("SAVE ALL ENTRY");
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (textArea_9.getText().equals("")) {
+					System.out.println("Empty");
+				} else {
+					System.out.println(textArea_9.getText());
+					textArea_9.setEditable(false);
+					rdbtnYes1.setEnabled(false);
+				}
+			}
+		});
 		button.setForeground(Color.RED);
 		button.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		button.setBounds(243, 997, 188, 46);
 		frame.getContentPane().add(button);
 
 		JButton btnPrintPage = new JButton("PRINT PAGE");
+		btnPrintPage.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (textArea_9.getText().equals("")) {
+					JOptionPane.showMessageDialog(frame, "Some Field Are empty");
+					System.out.println("Some Field Are empty");
+					textArea_11.setText(supervisorCheckin);
+				} else {
+					DAREntry.generateReport();
+
+				}
+
+			}
+		});
 		btnPrintPage.setForeground(Color.BLUE);
 		btnPrintPage.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		btnPrintPage.setBounds(436, 997, 188, 46);
 		frame.getContentPane().add(btnPrintPage);
 
+	}
+
+	protected static void generateReport() {
+		// TODO Auto-generated method stub
+		System.out.println("REPORT GENRATED on " + new Date());
 	}
 }
