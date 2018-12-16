@@ -97,7 +97,7 @@ public class DAREntry {
 		employeeDefault.setShiftTime("Night Shift");
 
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 159, 164, 826);
+		panel.setBounds(10, 159, 164, 477);
 		frame.getContentPane().add(panel);
 		JLabel lblRadioCharger = new JLabel("1. Radio & Charger");
 		panel.add(lblRadioCharger);
@@ -220,45 +220,9 @@ public class DAREntry {
 		txtrHelloWorld.setTabSize(10);
 		panel.add(txtrHelloWorld);
 
-		JLabel lblSupervisorCheckin = new JLabel("SUPERVISOR CHECK-IN");
-		panel.add(lblSupervisorCheckin);
-
-		JButton btnIn = new JButton("IN");
-		btnIn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				JOptionPane.showMessageDialog(frame, "CHECK IN COMPLETE AT" + new Date());
-
-				String supervisorCheckin = JOptionPane.showInputDialog(frame, "input Name");
-
-				System.out.println(supervisorCheckin);
-			}
-		});
-		panel.add(btnIn);
-
-		JButton button_1 = new JButton("OUT");
-		button_1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				JOptionPane.showMessageDialog(frame, "CHECK OUT COMPLETE AT" + new Date());
-
-			}
-		});
-		panel.add(button_1);
-
 		JPanel panel_13 = new JPanel();
 		panel.add(panel_13);
 		panel_13.setLayout(new GridLayout(0, 1, 0, 0));
-
-		JTextArea textArea_11 = new JTextArea();
-		textArea_11.setTabSize(10);
-		textArea_11.setLineWrap(true);
-		textArea_11.setColumns(1);
-		textArea_11.setBackground(Color.WHITE);
-		panel.add(textArea_11);
-		textArea_11.setText(supervisorCheckin);
 
 		JLabel lblSite = new JLabel("Site:");
 		lblSite.setBounds(10, 39, 32, 16);
@@ -531,6 +495,70 @@ public class DAREntry {
 		btnPrintPage.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
 		btnPrintPage.setBounds(436, 997, 188, 46);
 		frame.getContentPane().add(btnPrintPage);
+
+		JPanel panel_14 = new JPanel();
+		panel_14.setLayout(null);
+		panel_14.setBorder(new TitledBorder(null, "1", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_14.setBounds(10, 719, 164, 58);
+		frame.getContentPane().add(panel_14);
+
+		JTextArea textArea_11 = new JTextArea();
+		textArea_11.setLineWrap(true);
+		textArea_11.setColumns(1);
+		textArea_11.setBackground(Color.WHITE);
+		textArea_11.setBounds(56, 18, 91, 34);
+		panel_14.add(textArea_11);
+
+		JPanel panel_15 = new JPanel();
+		panel_15.setLayout(null);
+		panel_15.setBorder(new TitledBorder(null, "2", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_15.setBounds(10, 789, 164, 58);
+		frame.getContentPane().add(panel_15);
+
+		JTextArea textArea_12 = new JTextArea();
+		textArea_12.setLineWrap(true);
+		textArea_12.setColumns(1);
+		textArea_12.setBackground(Color.WHITE);
+		textArea_12.setBounds(56, 18, 91, 34);
+		panel_15.add(textArea_12);
+
+		JPanel panel_16 = new JPanel();
+		panel_16.setLayout(null);
+		panel_16.setBorder(new TitledBorder(null, "3", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_16.setBounds(10, 859, 164, 58);
+		frame.getContentPane().add(panel_16);
+
+		JTextArea textArea_13 = new JTextArea();
+		textArea_13.setLineWrap(true);
+		textArea_13.setColumns(1);
+		textArea_13.setBackground(Color.WHITE);
+		textArea_13.setBounds(56, 18, 91, 34);
+		panel_16.add(textArea_13);
+
+		JPanel panel_17 = new JPanel();
+		panel_17.setLayout(null);
+		panel_17.setBorder(new TitledBorder(null, "4", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_17.setBounds(10, 927, 164, 58);
+		frame.getContentPane().add(panel_17);
+
+		JTextArea textArea_14 = new JTextArea();
+		textArea_14.setLineWrap(true);
+		textArea_14.setColumns(1);
+		textArea_14.setBackground(Color.WHITE);
+		textArea_14.setBounds(56, 18, 91, 34);
+		panel_17.add(textArea_14);
+
+		JLabel label = new JLabel("SUPERVISOR CHECK-IN");
+		label.setBounds(15, 657, 144, 16);
+		frame.getContentPane().add(label);
+
+		JButton button_1 = new JButton("IN");
+		button_1.setBounds(10, 678, 75, 29);
+		frame.getContentPane().add(button_1);
+
+		JButton button_2 = new JButton("OUT");
+		button_2.setBounds(90, 678, 75, 29);
+		frame.getContentPane().add(button_2);
 
 	}
 

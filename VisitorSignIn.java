@@ -3,6 +3,8 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.util.Date;
@@ -175,20 +177,6 @@ public class VisitorSignIn {
 		textField_2.setBounds(580, 126, 44, 26);
 		frame.getContentPane().add(textField_2);
 
-		JButton button = new JButton("SAVE ALL ENTRY");
-
-		button.setForeground(Color.RED);
-		button.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		button.setBounds(243, 997, 188, 46);
-		frame.getContentPane().add(button);
-
-		JButton btnPrintPage = new JButton("PRINT PAGE");
-
-		btnPrintPage.setForeground(Color.BLUE);
-		btnPrintPage.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		btnPrintPage.setBounds(436, 997, 188, 46);
-		frame.getContentPane().add(btnPrintPage);
-
 		JLabel lblLastName = new JLabel("Last Name");
 		lblLastName.setBounds(10, 211, 130, 31);
 		frame.getContentPane().add(lblLastName);
@@ -244,53 +232,68 @@ public class VisitorSignIn {
 		btnLog.setBounds(243, 850, 316, 88);
 		frame.getContentPane().add(btnLog);
 
+		JButton btnSignin = new JButton("SIGN-IN");
+		btnSignin.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				btnSignin.setOpaque(true);
+				btnSignin.setText("");
+				String addTime = "Sign in" + " " + "at" + " " + new Date();
+				btnSignin.setText(addTime);
+				btnSignin.setForeground(new Color(70, 130, 180));
+				btnSignin.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+
+				btnSignin.setBackground(new Color(70, 130, 180));
+				btnSignin.setOpaque(true);
+			}
+		});
+		btnSignin.setForeground(Color.BLACK);
+		btnSignin.setBackground(new Color(65, 105, 225));
+		btnSignin.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		btnSignin.setBounds(67, 446, 316, 88);
+		frame.getContentPane().add(btnSignin);
+
 		JButton btnSignout = new JButton("SIGN-OUT");
+		btnSignout.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				btnSignout.setText("");
+				String addTime = "Sign out" + " " + "at" + " " + new Date();
+				btnSignout.setText(addTime);
+				btnSignout.setForeground(Color.RED);
+				btnSignout.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+
+				btnSignout.setBackground(new Color(70, 130, 180));
+				btnSignout.setOpaque(true);
+			}
+		});
 
 		btnSignout.setForeground(Color.BLACK);
 		btnSignout.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		btnSignout.setBounds(395, 446, 316, 88);
 		frame.getContentPane().add(btnSignout);
 
-		JButton btnSignin = new JButton("SIGN-IN");
-		btnSignin.setForeground(Color.BLACK);
-
-		btnSignout.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				btnSignout.setText("");
-				String addTime = "Sign out" + " " + "at" + " " + new Date();
-				btnSignout.setText(addTime);
-				btnSignout.setForeground(Color.RED);
-				btnSignout.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-			}
-
-			@Override
-			public void focusLost(FocusEvent e) {
-				btnSignout.setForeground(Color.BLACK);
-			}
-		});
-
+		// all buttonFocus Lost listener
 		btnSignin.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				btnSignin.setText("");
-				String addTime = "Sign in" + " " + "at" + " " + new Date();
-				btnSignin.setText(addTime);
-				btnSignin.setForeground(Color.RED);
-				btnSignin.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-			}
 
 			@Override
 			public void focusLost(FocusEvent e) {
 				btnSignin.setForeground(Color.BLACK);
+				btnSignin.setBackground(Color.WHITE);
+				btnSignin.setText("SIGN-IN");
 			}
 		});
 
-		btnSignin.setBackground(Color.WHITE);
+		// all buttonFocus Lost listener
+		btnSignout.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				btnSignout.setForeground(Color.BLACK);
+				btnSignout.setBackground(Color.WHITE);
+				btnSignout.setText("SIGN-OUT");
 
-		btnSignin.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		btnSignin.setBounds(67, 446, 316, 88);
-		frame.getContentPane().add(btnSignin);
+			}
+		});
 
 		String[][] data = { { "George Rhymes jr.", "QAK9185", "32144", "NIL", "02/28/2019" },
 				{ "APD", "NIL", "32144", "NIL", "NIL" }, { "APD", "NIL", "32144", "NIL", "NIL" },
@@ -315,8 +318,8 @@ public class VisitorSignIn {
 				lblBadgeExpirationDate.getText() };
 		JTable table = new JTable(data, columnNames);
 		table.setBounds(30, 40, 200, 300);
-		table.getSelectionModel().addSelectionInterval(5, 5);
-		table.getSelectionModel().addSelectionInterval(5, 5);
+		table.getSelectionModel().addSelectionInterval(3, 7);
+		// table.getSelectionModel().addSelectionInterval(5, 5);
 		table.changeSelection(1, 1, true, false);
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(0, 567, 764, 245);
