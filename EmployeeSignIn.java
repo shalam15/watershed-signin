@@ -237,9 +237,7 @@ public class DAREntry {
 		button_1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
 				JOptionPane.showMessageDialog(frame, "CHECK OUT COMPLETE AT" + new Date());
-
 			}
 		});
 		panel.add(button_1);
