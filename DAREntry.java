@@ -483,7 +483,7 @@ public class DAREntry {
 				if (textArea_9.getText().equals("")) {
 					JOptionPane.showMessageDialog(frame, "Some Field Are empty");
 					System.out.println("Some Field Are empty");
-					textArea_11.setText(supervisorCheckin);
+
 				} else {
 					DAREntry.generateReport();
 

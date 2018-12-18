@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -46,12 +47,14 @@ public class VisitorSignIn {
 	private JTextField txtAa;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
+	private JTextField lastNameField;
+	private JTextField firstNameField;
+	private JTextField povField;
+	private JTextField cityVehicleField;
+	private JTextField driversLiscenceField;
+	private JTextField badgeDateField;
+	private JTextField signInField;
+	private JTextField signOutField;
 
 	/**
 	 * Launch the application.
@@ -178,68 +181,87 @@ public class VisitorSignIn {
 		frame.getContentPane().add(textField_2);
 
 		JLabel lblLastName = new JLabel("Last Name");
-		lblLastName.setBounds(10, 211, 130, 31);
+		lblLastName.setBounds(10, 211, 79, 31);
 		frame.getContentPane().add(lblLastName);
-		textField_3 = new JTextField();
-		textField_3.setBounds(101, 203, 229, 46);
-		frame.getContentPane().add(textField_3);
-		textField_3.setColumns(10);
+		lastNameField = new JTextField();
+		lastNameField.setBounds(101, 203, 229, 46);
+		frame.getContentPane().add(lastNameField);
+		lastNameField.setColumns(10);
 
 		JLabel lblFirstName = new JLabel("First Name");
 		lblFirstName.setBounds(387, 211, 107, 31);
 		frame.getContentPane().add(lblFirstName);
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(493, 203, 229, 46);
-		frame.getContentPane().add(textField_4);
+		firstNameField = new JTextField();
+		firstNameField.setColumns(10);
+		firstNameField.setBounds(493, 203, 229, 46);
+		frame.getContentPane().add(firstNameField);
 
 		JLabel lblPovLiscence = new JLabel("POV Liscence");
 		lblPovLiscence.setBounds(10, 285, 83, 31);
 		frame.getContentPane().add(lblPovLiscence);
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(101, 277, 229, 46);
-		frame.getContentPane().add(textField_5);
+		povField = new JTextField();
+		povField.setColumns(10);
+		povField.setBounds(101, 277, 229, 46);
+		frame.getContentPane().add(povField);
 
 		JLabel lblCityVehicle = new JLabel("City vehicle #");
 		lblCityVehicle.setBounds(389, 285, 107, 31);
 		frame.getContentPane().add(lblCityVehicle);
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(493, 277, 229, 46);
-		frame.getContentPane().add(textField_6);
+		cityVehicleField = new JTextField();
+		cityVehicleField.setColumns(10);
+		cityVehicleField.setBounds(493, 277, 229, 46);
+		frame.getContentPane().add(cityVehicleField);
 
 		JLabel lblDriversLiscence = new JLabel("Drivers Liscence #");
 		lblDriversLiscence.setBounds(10, 359, 115, 31);
 		frame.getContentPane().add(lblDriversLiscence);
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(137, 351, 193, 46);
-		frame.getContentPane().add(textField_7);
+		driversLiscenceField = new JTextField();
+		driversLiscenceField.setColumns(10);
+		driversLiscenceField.setBounds(137, 351, 193, 46);
+		frame.getContentPane().add(driversLiscenceField);
 
 		JLabel lblBadgeExpirationDate = new JLabel("Badge Expiration Date");
 		lblBadgeExpirationDate.setBounds(387, 359, 150, 31);
 		frame.getContentPane().add(lblBadgeExpirationDate);
 
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(592, 351, 130, 46);
-		frame.getContentPane().add(textField_8);
+		badgeDateField = new JTextField();
+		badgeDateField.setColumns(10);
+		badgeDateField.setBounds(592, 351, 130, 46);
+		frame.getContentPane().add(badgeDateField);
 
 		JButton btnLog = new JButton("LOG NOW");
+		btnLog.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				generateReport();
+				System.out.println("SUBMITED");
+			}
+		});
 		btnLog.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
 		btnLog.setForeground(new Color(0, 0, 0));
-		btnLog.setBounds(243, 850, 316, 88);
+		btnLog.setBounds(243, 896, 316, 64);
 		frame.getContentPane().add(btnLog);
+		signInField = new JTextField();
+		signInField.setColumns(10);
+		signInField.setBounds(137, 409, 193, 46);
+		frame.getContentPane().add(signInField);
 
+		signOutField = new JTextField();
+		signOutField.setColumns(10);
+		signOutField.setBounds(137, 483, 193, 46);
+		frame.getContentPane().add(signOutField);
 		JButton btnSignin = new JButton("SIGN-IN");
 		btnSignin.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				btnSignin.setOpaque(true);
-				btnSignin.setText("");
-				String addTime = "Sign in" + " " + "at" + " " + new Date();
-				btnSignin.setText(addTime);
+
+				String addTime = "" + new Date();
+				signOutField.setText("");
+				signInField.setText(addTime);
+				signInField.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+
 				btnSignin.setForeground(new Color(70, 130, 180));
 				btnSignin.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 
@@ -250,16 +272,18 @@ public class VisitorSignIn {
 		btnSignin.setForeground(Color.BLACK);
 		btnSignin.setBackground(new Color(65, 105, 225));
 		btnSignin.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		btnSignin.setBounds(67, 446, 316, 88);
+		btnSignin.setBounds(10, 408, 107, 52);
 		frame.getContentPane().add(btnSignin);
 
 		JButton btnSignout = new JButton("SIGN-OUT");
 		btnSignout.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				btnSignout.setText("");
-				String addTime = "Sign out" + " " + "at" + " " + new Date();
-				btnSignout.setText(addTime);
+
+				String addTime = "" + new Date();
+				signInField.setText("");
+				signOutField.setText(addTime);
+				signOutField.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 				btnSignout.setForeground(Color.RED);
 				btnSignout.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 
@@ -270,7 +294,7 @@ public class VisitorSignIn {
 
 		btnSignout.setForeground(Color.BLACK);
 		btnSignout.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		btnSignout.setBounds(395, 446, 316, 88);
+		btnSignout.setBounds(10, 482, 107, 52);
 		frame.getContentPane().add(btnSignout);
 
 		// all buttonFocus Lost listener
@@ -295,27 +319,25 @@ public class VisitorSignIn {
 			}
 		});
 
-		String[][] data = { { "George Rhymes jr.", "QAK9185", "32144", "NIL", "02/28/2019" },
-				{ "APD", "NIL", "32144", "NIL", "NIL" }, { "APD", "NIL", "32144", "NIL", "NIL" },
-				{ "APD", "NIL", "32144", "NIL", "NIL" },
-				{ "George Rhymes jr.", "QAK9185", "32144", "NIL", "02/28/2019" },
-				{ "George Rhymes jr.", "QAK9185", "32144", "NIL", "02/28/2019" },
-				{ "APD", "NIL", "32144", "NIL", "NIL" },
-				{ "George Rhymes jr.", "QAK9185", "32144", "NIL", "02/28/2019" },
-				{ "APD", "NIL", "32144", "NIL", "NIL" }, { "APD", "NIL", "32144", "NIL", "NIL" },
-				{ "George Rhymes jr.", "QAK9185", "32144", "NIL", "02/28/2019" },
-				{ "George Rhymes jr.", "QAK9185", "32144", "NIL", "02/28/2019" },
-				{ "APD", "NIL", "32144", "NIL", "NIL" },
-				{ "George Rhymes jr.", "QAK9185", "32144", "NIL", "02/28/2019" },
-				{ "APD", "NIL", "32144", "NIL", "NIL" },
-				{ "George Rhymes jr.", "QAK9185", "32144", "NIL", "02/28/2019" },
-				{ "APD", "NIL", "32144", "NIL", "NIL" }, { "APD", "NIL", "32144", "NIL", "NIL" },
-				{ "George Rhymes jr.", "QAK9185", "32144", "NIL", "02/28/2019" } };
+		String[][] data = { { "George Rhymes jr.", "Octavia", "QAK9185", "32144", "NIL", "02/28/2019" },
+				{ "APD", "NIL", "NIL", "32144", "NIL", "NIL" }, { "APD", "NIL", "NIL", "32144", "NIL", "NIL" },
+				{ "George Rhymes jr.", "NIL", "QAK9185", "32144", "NIL", "02/28/2019" },
+				{ "George Rhymes jr.", "NIL", "QAK9185", "32144", "NIL", "02/28/2019" },
+				{ "APD", "NIL", "NIL", "32144", "NIL", "NIL" },
+				{ "George Rhymes jr.", "NIL", "QAK9185", "32144", "NIL", "02/28/2019" },
+				{ "APD", "NIL", "NIL", "32144", "NIL", "NIL" },
+				{ "George Rhymes jr.", "NIL", "QAK9185", "32144", "NIL", "02/28/2019" },
+				{ "George Rhymes jr.", "NIL", "QAK9185", "32144", "NIL", "02/28/2019" },
+				{ "APD", "NIL", "NIL", "32144", "NIL", "NIL" },
+				{ "George Rhymes jr.", "NIL", "QAK9185", "32144", "NIL", "02/28/2019" },
+				{ "APD", "NIL", "NIL", "32144", "NIL", "NIL" },
+				{ "George Rhymes jr.", "NIL", "QAK9185", "32144", "NIL", "02/28/2019" },
+				{ "APD", "NIL", "NIL", "32144", "NIL", "NIL" },
+				{ "George Rhymes jr.", "NIL", "QAK9185", "32144", "NIL", "02/28/2019" } };
 
 		// Column Names
-		String[] columnNames = { lblLastName.getText().replace(" Name", "") + ", " + lblFirstName.getText(),
-				lblPovLiscence.getText(), lblCityVehicle.getText(), lblDriversLiscence.getText(),
-				lblBadgeExpirationDate.getText() };
+		String[] columnNames = { lblLastName.getText(), lblFirstName.getText(), lblPovLiscence.getText(),
+				lblCityVehicle.getText(), lblDriversLiscence.getText(), lblBadgeExpirationDate.getText() };
 		JTable table = new JTable(data, columnNames);
 		table.setBounds(30, 40, 200, 300);
 		table.getSelectionModel().addSelectionInterval(3, 7);
@@ -324,6 +346,54 @@ public class VisitorSignIn {
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(0, 567, 764, 245);
 		frame.getContentPane().add(scrollPane);
+
+		JButton btnClearAll = new JButton("CLEAR ALL");
+		btnClearAll.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				signOutField.setText("");
+				lastNameField.setText("");
+				firstNameField.setText("");
+				povField.setText("");
+				cityVehicleField.setText("");
+				driversLiscenceField.setText("");
+				badgeDateField.setText("");
+				signInField.setText("");
+			}
+		});
+		btnClearAll.setBounds(387, 474, 335, 55);
+		frame.getContentPane().add(btnClearAll);
+
+		JSeparator separator = new JSeparator();
+		separator.setBounds(10, 170, 754, 12);
+		frame.getContentPane().add(separator);
+
+		JButton btnFillSelectedRow = new JButton("FILL SELECTED ROW");
+		btnFillSelectedRow.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int row = table.getSelectedRow();
+				String lName = table.getModel().getValueAt(row, 0).toString();
+				String fName = table.getModel().getValueAt(row, 1).toString();
+				String POV = table.getModel().getValueAt(row, 2).toString();
+				String cityVehicle = table.getModel().getValueAt(row, 3).toString();
+				String driversLiscence = table.getModel().getValueAt(row, 4).toString();
+				String badgeExpiration = table.getModel().getValueAt(row, 5).toString();
+
+				lastNameField.setText(lName);
+				firstNameField.setText(fName);
+				povField.setText(POV);
+				cityVehicleField.setText(cityVehicle);
+				driversLiscenceField.setText(driversLiscence);
+				badgeDateField.setText(badgeExpiration);
+
+			}
+		});
+		btnFillSelectedRow.setForeground(Color.RED);
+		btnFillSelectedRow.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
+		btnFillSelectedRow.setBounds(243, 820, 316, 64);
+		frame.getContentPane().add(btnFillSelectedRow);
+
 		scrollPane.setVisible(true);
 
 	}
