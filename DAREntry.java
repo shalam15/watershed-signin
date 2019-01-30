@@ -60,6 +60,7 @@ public class DAREntry {
 				try {
 					DAREntry window = new DAREntry();
 					window.frame.setVisible(true);
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -84,6 +85,7 @@ public class DAREntry {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(true);
+
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("/Users/aj/Desktop/PNG image 3.png"));
 		frame.setResizable(false);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -553,7 +555,7 @@ public class DAREntry {
 		frame.getContentPane().add(label);
 
 		JButton button_1 = new JButton("IN");
-		button_1.setBounds(10, 678, 75, 29);
+		button_1.setBounds(3, 678, 75, 29);
 		frame.getContentPane().add(button_1);
 
 		JButton button_2 = new JButton("OUT");
